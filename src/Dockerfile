@@ -1,5 +1,5 @@
 # 빌드 단계 
-FROM node:16 AS build 
+FROM node:20 AS build 
 WORKDIR /app 
 COPY package*.json ./ 
 RUN npm install 
@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build 
 
 # 실행 단계 
-FROM node:16 
+FROM node:20 
 WORKDIR /app 
 COPY --from=build /app/dist /app/dist 
 RUN npm install express 
