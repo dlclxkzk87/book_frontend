@@ -4,7 +4,7 @@ import axios from "axios";
 let BookList = () => {
   const [list, setList] = useState([]);
 
-  // 도서목록을 가져오는 함수
+  //도서목록을 가져 오는 함수
   const fetchBooks = async () => {
     // 로컬 테스트 : http://localhost:8080/api/books
     const res = await axios.get("http://18.206.89.55:8080/api/books");
@@ -14,7 +14,7 @@ let BookList = () => {
   // 컴포넌트가 처음 만들어 질때 (마운트 될 때) 도서목록 가져오기
   // []); -> 최초 동작시 빈배열 -> 최초 동작만 하기
   useEffect(() => {
-    fetchBooks;
+    fetchBooks();
   }, []);
 
   let tr_list = list.map((book) => {
@@ -33,7 +33,7 @@ let BookList = () => {
 
   return (
     <>
-      <h2>도서목록</h2>
+      <h2>도서목록2</h2>
       <table>
         <thead>
           <tr>
@@ -49,4 +49,5 @@ let BookList = () => {
     </>
   );
 };
+
 export default BookList;
