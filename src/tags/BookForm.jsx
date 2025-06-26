@@ -12,7 +12,7 @@ let BookForm = () => {
   const navigate = useNavigate();
 
   const savebook = async (e) => {
-    e.preventDefault(); // 기본이벤트 제거
+    e.preventDefault();
     const book = { no, title, price, qty, publisher };
     const res = await axios.post("http://18.206.89.55:8080/api/books", book);
     navigate("/");
